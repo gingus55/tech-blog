@@ -4,7 +4,9 @@
   "description": "A tech blog site which allows logged in users to Blog and comment on others.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "nodemon src/index.js",
+    "seed": ""
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/gingus55/tech-blog/issues"
   },
-  "homepage": "https://github.com/gingus55/tech-blog#readme"
+  "homepage": "https://github.com/gingus55/tech-blog#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "sequelize": "^7.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
