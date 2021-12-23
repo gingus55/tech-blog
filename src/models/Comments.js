@@ -16,7 +16,7 @@ Comments.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    blog_id: {
+    blogs_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "blogs",
