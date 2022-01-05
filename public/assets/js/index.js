@@ -68,6 +68,29 @@ const handleLogout = async () => {
   }
 };
 
+const container = $("#container");
+
+const handleClick = function (event) {
+  const target = event.target;
+  console.log(target);
+  // if (target.id === "painting") {
+  //   storeKeyword(target.id);
+  //   renderQuestions(paintingsArr[currentQuestionIndex], "painting");
+  //   currentQuestionIndex += 1;
+  //   container.on("click", questionKeyClick);
+  // } else if (target.id === "sculpture") {
+  //   storeKeyword(target.id);
+  //   renderQuestions(sculpturesArr[currentQuestionIndex], "sculpture");
+  //   currentQuestionIndex += 1;
+  //   container.on("click", questionKeyClick);
+};
+
+const onReady = function () {
+  container.on("click", handleClick);
+};
+
+$(document).ready(onReady);
+
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignUp);
 logoutBtn.on("click", handleLogout);
