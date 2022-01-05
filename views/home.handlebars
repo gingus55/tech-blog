@@ -9,8 +9,11 @@
 <h1 class="m-3">Latest Blogs</h1>
 
 <main>
+    {{#if loggedIn}}
     {{#each mapped}}
      {{> blogs-public}}
   {{/each}}
-   
+  {{else}}
+  {{>blogs-private}}
+   {{/if}}
 </main>

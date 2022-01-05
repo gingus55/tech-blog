@@ -16,7 +16,7 @@ const renderHome = async (req, res) => {
     const mapped = blogData.map((each) => {
       return each.get({ plain: true });
     });
-    console.log(mapped);
+
     res.render("home", { loggedIn, mapped });
   } catch (err) {
     res.status(500).json(err);
