@@ -4,7 +4,7 @@ const Users = require("../../models/Users");
 const login = async (req, res) => {
   try {
     const payload = getPayloadWithValidFieldsOnly(
-      ["user_name", "password"],
+      ["email", "password"],
       req.body
     );
 
@@ -61,6 +61,8 @@ const signup = async (req, res) => {
       req.body
     );
 
+    console.log(payload);
+
     if (Object.keys(payload).length !== 5) {
       return res.status(400).json({
         success: false,
@@ -68,7 +70,7 @@ const signup = async (req, res) => {
       });
     }
 
-    await User.create(payload);
+    await Users.create(payload);
 
     return res.json({ success: true, data: "Successfully created a user" });
   } catch (error) {
