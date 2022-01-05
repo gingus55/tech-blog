@@ -11,9 +11,11 @@
 <main>
     {{#if loggedIn}}
     {{#each mapped}}
-     {{> blogs-public}}
+     {{> blogs-private}}
   {{/each}}
   {{else}}
-  {{>blogs-private}}
+  {{#each mapped}}
+     {{> blogs-public}}
+  {{/each}}
    {{/if}}
 </main>
