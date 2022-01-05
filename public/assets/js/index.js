@@ -26,23 +26,23 @@ const handleLogin = async (event) => {
 const handleSignUp = async (event) => {
   event.preventDefault();
 
+  const user_name = $("#username-input").val();
   const email = $("#email-input").val();
   const password = $("#password-input").val();
-  const firstName = $("#first-name").val();
-  const lastName = $("#last-name").val();
-  const username = $("#username-input").val();
+  const first_name = $("#first-name").val();
+  const last_name = $("#last-name").val();
 
-  const response = await fetch("/auth/signup", {
+  const response = await fetch("/auth/sign-up", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      username,
+      user_name,
       email,
       password,
-      first_name: firstName,
-      last_name: lastName,
+      first_name,
+      last_name,
     }),
   });
 
