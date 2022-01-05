@@ -7,5 +7,8 @@
 </header>
 
 <main>
-    {{> blogs-public}}
+    {{#each mapped}}
+     {{> blogs-public}}
+  {{/each}}
+   
 </main>

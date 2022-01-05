@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const { Model, DataTypes } = require("sequelize");
 
 const connection = require("../../config/connection");
-const hashPassword = require("../../hooks/hashPassword");
+const hooks = require("../hooks/hashPassword");
 
 class Users extends Model {
   async checkPassword(userPassword) {
@@ -38,9 +38,7 @@ Users.init(
     freezeTableName: true,
     underscored: true,
     modelName: "users",
-    hooks: {
-      beforeCreate: hashPassword,
-    },
+    hooks,
   }
 );
 
