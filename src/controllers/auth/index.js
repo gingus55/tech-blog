@@ -1,10 +1,10 @@
 const { getPayloadWithValidFieldsOnly } = require("../../helpers");
-const { User } = require("../../models");
+const Users = require("../../models/Users");
 
 const login = async (req, res) => {
   try {
     const payload = getPayloadWithValidFieldsOnly(
-      ["email", "password"],
+      ["user_name", "password"],
       req.body
     );
 
@@ -15,7 +15,7 @@ const login = async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ where: { email: payload.email } });
+    const user = await Users.findOne({ where: { email: payload.email } });
 
     if (!user) {
       return res.status(404).json({
@@ -57,7 +57,7 @@ const login = async (req, res) => {
 const signup = async (req, res) => {
   try {
     const payload = getPayloadWithValidFieldsOnly(
-      ["username", "email", "password", "first_name", "last_name"],
+      ["user_name", "email", "password", "first_name", "last_name"],
       req.body
     );
 
