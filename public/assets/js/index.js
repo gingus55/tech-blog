@@ -72,7 +72,9 @@ const container = $("#container");
 
 const handleClick = function (event) {
   const target = event.target;
-  console.log(target);
+  console.log(target.id);
+  if (target.id && !container) {
+  }
   // if (target.id === "painting") {
   //   storeKeyword(target.id);
   //   renderQuestions(paintingsArr[currentQuestionIndex], "painting");
