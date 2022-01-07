@@ -73,22 +73,9 @@ const container = $("#container");
 const handleClick = async function (event) {
   const target = event.target;
   const blogId = `blogs/${target.id}`;
-  console.log(blogId);
-  //   if (target.id) {
-  //     const response = await fetch(blogId, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-  //     console.log(response);
-  //     const data = await response.json();
-  //     console.log(data);
-  //     if (data.success) {
+
   window.location.replace(blogId);
 };
-//   }
-// };
 
 const onReady = function () {
   container.on("click", handleClick);
