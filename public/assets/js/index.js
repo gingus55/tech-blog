@@ -70,22 +70,25 @@ const handleLogout = async () => {
 
 const container = $("#container");
 
-const handleClick = function (event) {
+const handleClick = async function (event) {
   const target = event.target;
-  console.log(target.id);
-  if (target.id && !container) {
-  }
-  // if (target.id === "painting") {
-  //   storeKeyword(target.id);
-  //   renderQuestions(paintingsArr[currentQuestionIndex], "painting");
-  //   currentQuestionIndex += 1;
-  //   container.on("click", questionKeyClick);
-  // } else if (target.id === "sculpture") {
-  //   storeKeyword(target.id);
-  //   renderQuestions(sculpturesArr[currentQuestionIndex], "sculpture");
-  //   currentQuestionIndex += 1;
-  //   container.on("click", questionKeyClick);
+  const blogId = `blogs/${target.id}`;
+  console.log(blogId);
+  //   if (target.id) {
+  //     const response = await fetch(blogId, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     console.log(response);
+  //     const data = await response.json();
+  //     console.log(data);
+  //     if (data.success) {
+  window.location.replace(blogId);
 };
+//   }
+// };
 
 const onReady = function () {
   container.on("click", handleClick);

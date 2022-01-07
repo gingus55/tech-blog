@@ -4,7 +4,7 @@
 
 <main>
 <h1>Blogs by Id</h1>
-{{#each blogId}}
+{{#with blogData}}
      {{> blogs-private}}
-  {{/each}}
+{{/with}}
 </main>

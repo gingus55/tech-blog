@@ -13,8 +13,9 @@ const renderBlogById = async (req, res) => {
     const { loggedIn } = req.session;
 
     const blogId = await Blogs.findByPk(req.params.id);
-
-    res.render("blogs", { loggedIn, blogId });
+    const blogData = blogId.dataValues;
+    console.log(blogData);
+    res.render("blogs", { loggedIn, blogData });
   } catch (err) {
     res.status(500).json(err);
   }
