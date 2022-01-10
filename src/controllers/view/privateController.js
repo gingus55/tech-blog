@@ -13,10 +13,13 @@ const renderBlogs = (req, res) => {
 const renderBlogById = async (req, res) => {
   try {
     const { loggedIn } = req.session;
-    const blogId = await Blogs.findByPk(req.params.id, {
+
+    let blogData = await Blogs.findByPk(req.params.id, {
       include: [{ model: Comments }],
     });
-    const blogData = blogId.dataValues;
+    blogData = blogData.get({ plain: true });
+
+    // const blogData = blogId.dataValues;
     res.render("blogs", { loggedIn, blogData });
   } catch (err) {
     res.status(500).json(err);

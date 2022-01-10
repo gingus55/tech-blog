@@ -10,11 +10,11 @@
 
 <main id="container">
     {{#if loggedIn}}
-    {{#each mapped}}
+    {{#each blogData}}
      {{> blogs-private}}
   {{/each}}
   {{else}}
-  {{#each mapped}}
+  {{#each blogdata}}
      {{> blogs-public}}
   {{/each}}
    {{/if}}

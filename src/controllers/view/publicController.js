@@ -1,3 +1,4 @@
+const { Comments } = require("../../models");
 const Blogs = require("../../models/Blogs");
 
 const renderLogin = (req, res) => {
@@ -12,12 +13,16 @@ const renderHome = async (req, res) => {
   try {
     const { loggedIn } = req.session;
 
-    const blogData = await Blogs.findAll();
-    const mapped = blogData.map((each) => {
+    let blogData = await Blogs.findAll({
+      include: [{ model: Comments, as: "comments" }],
+    });
+    blogData = blogData.map((each) => {
       return each.get({ plain: true });
     });
 
-    res.render("home", { loggedIn, mapped });
+    console.log(blogData);
+
+    res.render("home", { loggedIn, blogData });
   } catch (err) {
     res.status(500).json(err);
   }
