@@ -2,8 +2,27 @@ const Blogs = require("../../models/Blogs");
 const Comments = require("../../models/Comments");
 const Users = require("../../models/Users");
 
-const renderDashboard = (req, res) => {
-  res.render("dashboard");
+const renderDashboard = async (req, res) => {
+  try {
+    const { loggedIn, user } = req.session;
+
+    console.log(loggedIn);
+    let blogData = await Blogs.findAll({
+      include: [{ model: Comments, as: "comments" }],
+      where: {
+        user_id: user.id,
+      },
+    });
+    blogData = blogData.map((each) => {
+      return each.get({ plain: true });
+    });
+
+    console.log(blogData);
+
+    res.render("dashboard", { loggedIn, blogData });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
 const renderBlogs = (req, res) => {

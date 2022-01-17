@@ -2,4 +2,9 @@
   <h4 id="{{id}}" class="card-title">{{title}}</h4>
   <p id="{{id}}" class="card-text">{{content}}</p>
   <p id="{{id}}">Created: {{createdAt}}</p>
+  <ul>
+    {{#each this.comments}}
+      <li>{{this.content}}</li>
+    {{/each}}
+  </ul>
 </div>
