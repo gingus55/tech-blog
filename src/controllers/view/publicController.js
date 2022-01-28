@@ -20,7 +20,7 @@ const renderHome = async (req, res) => {
       return each.get({ plain: true });
     });
 
-    console.log(blogData);
+    // console.log(blogData);
 
     res.render("home", { loggedIn, blogData });
   } catch (err) {

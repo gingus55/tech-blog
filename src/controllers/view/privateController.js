@@ -5,9 +5,9 @@ const Users = require("../../models/Users");
 const renderDashboard = async (req, res) => {
   try {
     const { loggedIn, user } = req.session;
-    console.log(req.session);
-    console.log(user);
-    console.log(loggedIn);
+    // console.log(req.session);
+    // console.log(user);
+    // console.log(loggedIn);
     let blogData = await Blogs.findAll({
       include: [{ model: Comments, as: "comments" }],
       where: {
@@ -18,7 +18,7 @@ const renderDashboard = async (req, res) => {
       return each.get({ plain: true });
     });
 
-    console.log(blogData);
+    // console.log(blogData);
 
     res.render("dashboard", { loggedIn, blogData });
   } catch (err) {
@@ -39,7 +39,7 @@ const renderBlogs = async (req, res) => {
       return each.get({ plain: true });
     });
 
-    console.log(blogData);
+    // console.log(blogData);
 
     res.render("blogs", { loggedIn, blogData });
   } catch (err) {
