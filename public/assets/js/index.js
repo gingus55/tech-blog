@@ -78,10 +78,11 @@ const handleClick = async function (event) {
   window.location.replace(blogId);
 };
 
-const handleComment = (event) => {
+const handleComment = async (event) => {
   event.preventDefault();
 
-  const comment = $("#commment-input").val();
+  console.log(event);
+  const comment = $("#comment-input").val();
 
   // const blogs_id =
 
