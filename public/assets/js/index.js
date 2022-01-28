@@ -1,6 +1,7 @@
 const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const logoutBtn = $("#logout-btn");
+const commentForm = $("#comment-form");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -77,6 +78,31 @@ const handleClick = async function (event) {
   window.location.replace(blogId);
 };
 
+const handleComment = (event) => {
+  event.preventDefault();
+
+  const comment = $("#commment-input").val();
+
+  // const blogs_id =
+
+  const response = await fetch("/api/comment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      comment,
+      blogs_id,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    window.location.replace("/blogs");
+  }
+};
+
 const onReady = function () {
   container.on("click", handleClick);
 };
@@ -86,3 +112,4 @@ $(document).ready(onReady);
 loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignUp);
 logoutBtn.on("click", handleLogout);
+commentForm.on("submit", handleComment);
