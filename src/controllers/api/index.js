@@ -6,7 +6,7 @@ const createBlog = () => {};
 const createComment = async (req, res) => {
   try {
     const payload = getPayloadWithValidFieldsOnly(
-      ["comment", "blogs_id"],
+      ["content", "blogs_id"],
       req.body
     );
 

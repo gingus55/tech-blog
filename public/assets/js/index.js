@@ -82,11 +82,11 @@ const handleComment = async (event) => {
   event.preventDefault();
 
   console.log(event);
-  const comment = $("#comment-input").val();
+  const content = $("#comment-input").val();
 
-  console.log(comment);
+  //   console.log(content);
   const blogs_id = $("#comment-form").data("id");
-  console.log(blogs_id);
+  //   console.log(blogs_id);
 
   const response = await fetch("/api/comment", {
     method: "POST",
@@ -94,7 +94,7 @@ const handleComment = async (event) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      comment,
+      content,
       blogs_id,
     }),
   });
