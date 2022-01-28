@@ -9,12 +9,12 @@
 <main>
 <h1>Blogs</h1>
   {{#if loggedIn}}
-{{#each blogData}}
-     {{> blogs-private}}
-{{/each}}
+{{#with blogData}}
+     {{> comment-blog}}
+{{/with}}
   {{else}}
-{{#each blogData}}
+{{#with blogData}}
 {{>blogs-public}}
-{{/each}}
+{{/with}}
 {{/if}}
 </main>

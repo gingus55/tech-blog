@@ -5,7 +5,8 @@ const Users = require("../../models/Users");
 const renderDashboard = async (req, res) => {
   try {
     const { loggedIn, user } = req.session;
-
+    console.log(req.session);
+    console.log(user);
     console.log(loggedIn);
     let blogData = await Blogs.findAll({
       include: [{ model: Comments, as: "comments" }],
@@ -25,8 +26,25 @@ const renderDashboard = async (req, res) => {
   }
 };
 
-const renderBlogs = (req, res) => {
-  res.render("blogs");
+const renderBlogs = async (req, res) => {
+  try {
+    const { loggedIn, user } = req.session;
+    // console.log(req.session);
+    // console.log(user);
+    // console.log(loggedIn);
+    let blogData = await Blogs.findAll({
+      include: [{ model: Comments, as: "comments" }],
+    });
+    blogData = blogData.map((each) => {
+      return each.get({ plain: true });
+    });
+
+    console.log(blogData);
+
+    res.render("blogs", { loggedIn, blogData });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
 const renderBlogById = async (req, res) => {
@@ -39,7 +57,7 @@ const renderBlogById = async (req, res) => {
     blogData = blogData.get({ plain: true });
 
     // const blogData = blogId.dataValues;
-    res.render("blogs", { loggedIn, blogData });
+    res.render("comment", { loggedIn, blogData });
   } catch (err) {
     res.status(500).json(err);
   }

@@ -1,7 +1,9 @@
+<div id="container">
 <div id="{{id}}" class="card card-body mb-3" style="width: 25rem;">
   <h4 id="{{id}}" class="card-title">{{title}}</h4>
   <p id="{{id}}" class="card-text">{{content}}</p>
   <p id="{{id}}">Created: {{createdAt}}</p>
+  <h5>Comments</h5>
   <ul>
     {{#each this.comments}}
       <li>{{this.content}}</li>
