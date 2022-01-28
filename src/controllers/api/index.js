@@ -6,7 +6,7 @@ const createBlog = () => {};
 const createComment = async (req, res) => {
   try {
     const payload = getPayloadWithValidFieldsOnly(
-      ["content", "blogs_id"],
+      ["comment", "blogs_id"],
       req.body
     );
 
@@ -23,7 +23,7 @@ const createComment = async (req, res) => {
 
     return res.json({ success: true, data: "Successfully created a comment" });
   } catch (error) {
-    console.log(`[ERROR]: Create user failed | ${error.message}`);
+    console.log(`[ERROR]: Create comment failed | ${error.message}`);
     return res
       .status(500)
       .json({ success: false, error: "Failed to post a comment" });

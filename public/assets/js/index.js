@@ -84,7 +84,9 @@ const handleComment = async (event) => {
   console.log(event);
   const comment = $("#comment-input").val();
 
-  // const blogs_id =
+  console.log(comment);
+  const blogs_id = $("#comment-form").data("id");
+  console.log(blogs_id);
 
   const response = await fetch("/api/comment", {
     method: "POST",
