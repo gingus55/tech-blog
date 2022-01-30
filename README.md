@@ -8,6 +8,8 @@ https://github.com/gingus55/tech-blog
 
 # Link to deployed site
 
+https://arcane-mountain-28648.herokuapp.com/
+
 # Tech-blog
 
 ![mit](https://img.shields.io/static/v1?label=mit&message=License&color=green)
