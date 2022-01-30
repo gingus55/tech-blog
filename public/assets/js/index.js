@@ -3,6 +3,7 @@ const signupForm = $("#signup-form");
 const logoutBtn = $("#logout-btn");
 const commentForm = $("#comment-form");
 const blogBtn = $("#newBlogBtn");
+const blogForm = $("#blog-form");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -108,8 +109,31 @@ const handleComment = async (event) => {
 };
 
 const handleNewBlog = (event) => {
-  console.log("hi");
   window.location.replace("/create-blog");
+};
+
+const createNewBlog = async (event) => {
+  event.preventDefault();
+
+  const title = $("#title-input").val();
+  const content = $("#blog-input").val();
+
+  const response = await fetch("/api/blog", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title,
+      content,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    window.location.replace("/blogs");
+  }
 };
 
 const onReady = function () {
@@ -123,3 +147,4 @@ signupForm.on("submit", handleSignUp);
 logoutBtn.on("click", handleLogout);
 commentForm.on("submit", handleComment);
 blogBtn.on("click", handleNewBlog);
+blogForm.on("submit", createNewBlog);
