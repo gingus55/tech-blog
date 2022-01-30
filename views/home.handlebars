@@ -5,10 +5,14 @@
   {{> public-navbar}}
   {{/if}}
 </header>
+<div class="d-flex justify-content-center">
+<h1 class="m-3">Tech Blogs Homepage</h1>
+</div>
 
-<h1 class="m-3">Latest Blogs</h1>
+<h2 class="m-6">Recent blogs:</h2>
 
-<main id="container">
+<main id="container" class="d-flex-column">
+
     {{#if loggedIn}}
     {{#each blogData}}
      {{> blogs-private}}

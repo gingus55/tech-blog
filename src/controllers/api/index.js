@@ -30,6 +30,8 @@ const createBlog = async (req, res) => {
   }
 };
 
+const deleteBlogById = () => {};
+
 const createComment = async (req, res) => {
   try {
     const payload = getPayloadWithValidFieldsOnly(
@@ -57,4 +59,4 @@ const createComment = async (req, res) => {
   }
 };
 
-module.exports = { createBlog, createComment };
+module.exports = { createBlog, createComment, deleteBlogById };
