@@ -11,6 +11,6 @@ const router = Router();
 router.post("/blog", createBlog);
 router.post("/comment", createComment);
 
-router.delete("/blog/:id", auth, deleteBlogById);
+router.delete("/blog/:id", deleteBlogById);
 
 module.exports = router;
