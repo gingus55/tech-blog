@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A tech blog site which allows logged in users to Blog and comment on others.",
   "main": "index.js",
+  "engines": {
+    "node": "16.13.0"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "nodemon src/index.js",
