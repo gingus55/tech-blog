@@ -30,7 +30,22 @@ const createBlog = async (req, res) => {
   }
 };
 
-const deleteBlogById = () => {};
+const deleteBlogById = async (req, res) => {
+  try {
+    // delete blog
+    await Blogs.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    return res.json({ message: "Successfully deleted blog" });
+  } catch (error) {
+    // catch error and return status 500
+    console.log(`[ERROR]: Failed to delete blog | ${error.message}`);
+    return res.status(500).json({ error: "Failed to delete blog" });
+  }
+};
 
 const createComment = async (req, res) => {
   try {
