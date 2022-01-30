@@ -12,3 +12,14 @@
 .card {
   margin-left: 20px;
 }
+
+#deleteBlog {
+  background-color: rgb(194, 113, 113);
+  font-weight: 700;
+}
+
+#newBlogBtn {
+  background-color: rgb(135, 215, 226);
+  border-radius: 8%;
+  margin: 10px;
+}
