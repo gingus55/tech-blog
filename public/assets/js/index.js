@@ -4,6 +4,7 @@ const logoutBtn = $("#logout-btn");
 const commentForm = $("#comment-form");
 const blogBtn = $("#newBlogBtn");
 const blogForm = $("#blog-form");
+const deleteBtn = document.querySelectorAll(".deleteBlog");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -77,7 +78,10 @@ const handleClick = async function (event) {
   const target = event.target;
   const blogId = `blogs/${target.id}`;
 
-  window.location.replace(blogId);
+  if (isNaN(target.id)) {
+  } else {
+    window.location.replace(blogId);
+  }
 };
 
 const handleComment = async (event) => {
@@ -136,6 +140,26 @@ const createNewBlog = async (event) => {
   }
 };
 
+const handleDeleteBlog = async (event) => {
+  event.preventDefault();
+
+  const blog_id = event.target.getAttribute("data-id");
+  console.log(blog_id);
+  const response = await fetch(`/api/blog/${blog_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    console.log("response ok");
+    window.location.replace("/dashboard");
+  } else {
+    alert("Failed to delete blog");
+  }
+};
+
 const onReady = function () {
   container.on("click", handleClick);
 };
@@ -148,3 +172,8 @@ logoutBtn.on("click", handleLogout);
 commentForm.on("submit", handleComment);
 blogBtn.on("click", handleNewBlog);
 blogForm.on("submit", createNewBlog);
+console.log(deleteBtn);
+deleteBtn.forEach((button) => {
+  button.addEventListener("click", handleDeleteBlog);
+});
+// deleteBtn.forEach(each.on("click", handleDeleteBlog));
