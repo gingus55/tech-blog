@@ -8,9 +8,11 @@ const createBlog = async (req, res) => {
       req.body
     );
 
+    console.log(req.session);
+    payload.user_id = req.session.user.id;
     console.log(payload);
 
-    if (Object.keys(payload).length !== 2) {
+    if (Object.keys(payload).length !== 3) {
       return res.status(400).json({
         success: false,
         error: "Please provide valid fields in post body",
@@ -21,7 +23,7 @@ const createBlog = async (req, res) => {
 
     return res.json({ success: true, data: "Successfully created a blog" });
   } catch (error) {
-    console.log(`[ERROR]: Create comment failed | ${error.message}`);
+    console.log(`[ERROR]: Create blog failed | ${error.message}`);
     return res
       .status(500)
       .json({ success: false, error: "Failed to post a blog" });
