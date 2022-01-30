@@ -47,6 +47,12 @@ const renderBlogs = async (req, res) => {
   }
 };
 
+const renderCreateBlog = async (req, res) => {
+  const { loggedIn } = req.session;
+
+  res.render("create-blog", { loggedIn });
+};
+
 const renderBlogById = async (req, res) => {
   try {
     const { loggedIn } = req.session;
@@ -72,4 +78,5 @@ module.exports = {
   renderBlogs,
   renderBlogById,
   createComment,
+  renderCreateBlog,
 };

@@ -2,6 +2,7 @@ const loginForm = $("#login-form");
 const signupForm = $("#signup-form");
 const logoutBtn = $("#logout-btn");
 const commentForm = $("#comment-form");
+const blogBtn = $("#newBlogBtn");
 
 const handleLogin = async (event) => {
   event.preventDefault();
@@ -106,6 +107,11 @@ const handleComment = async (event) => {
   }
 };
 
+const handleNewBlog = (event) => {
+  console.log("hi");
+  window.location.replace("/create-blog");
+};
+
 const onReady = function () {
   container.on("click", handleClick);
 };
@@ -116,3 +122,4 @@ loginForm.on("submit", handleLogin);
 signupForm.on("submit", handleSignUp);
 logoutBtn.on("click", handleLogout);
 commentForm.on("submit", handleComment);
+blogBtn.on("click", handleNewBlog);

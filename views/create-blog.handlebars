@@ -1,0 +1,21 @@
+<header>
+  {{> private-navbar}}
+</header>
+
+<main class='container'>
+  <div class="mx-auto my-4">
+    <h1 class="text-center">What you Blog about?</h1>
+    <hr />
+    <form id='blog-form' class="p-4">
+        <div class='mb-3'>
+        <label for='title-input' class='form-label'>Blog Title</label>
+        <input type='text' class='form-control' id='title-input' />
+      </div>
+      <div class='mb-3'>
+        <label for='blog-input' class='form-label'>My blog</label>
+        <textarea type='text' class='form-control' id='blog-input' ></textarea>
+      </div>
+      <button type='submit' class='btn btn-primary'>Create Blog</button>
+    </form>
+  </div>
+</main>
