@@ -1,0 +1,24 @@
+<div id="{{id}}" class="card card-body mb-3" style="width: 25rem;">
+  <h4 id="{{id}}" class="card-title">{{title}}</h4>
+  <p id="{{id}}" class="card-text">{{content}}</p>
+  <p id="{{id}}">Created: {{createdAt}}</p>
+  <h5>Comments</h5>
+  <ul>
+    {{#each this.comments}}
+      <li>{{this.content}}</li>
+    {{/each}}
+    <div class="container">
+      <div class="mx-auto my-4">
+        <h1 class="text-center">Make a comment</h1>
+        <hr />
+        <form id="comment-form" data-id="{{id}}" class="p-4">
+          <div class="mb-3">
+            <label for="comment-input" class="form-label">Enter comment</label>
+            <input type="comment" class="form-control" id="comment-input" />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </ul>
+</div>

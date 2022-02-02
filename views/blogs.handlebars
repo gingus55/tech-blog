@@ -1,0 +1,22 @@
+<header>
+  {{#if loggedIn}}
+  {{> private-navbar}}
+  {{else}}
+  {{> public-navbar}}
+  {{/if}}
+</header>
+
+<main>
+<div class="d-flex justify-content-center">
+<h1 class="m-3">Tech Blogs</h1>
+</div>
+  {{#if loggedIn}}
+{{#each blogData}}
+     {{> blogs-private}}
+{{/each}}
+  {{else}}
+{{#each blogData}}
+{{>blogs-public}}
+{{/each}}
+{{/if}}
+</main>

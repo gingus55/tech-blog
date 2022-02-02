@@ -1,0 +1,25 @@
+.card-title {
+  border-radius: 3%;
+  background-color: #f8f5f5;
+  padding: 5px;
+}
+
+.card-text {
+  background-color: rgb(250, 242, 242);
+  padding: 7px;
+}
+
+.card {
+  margin-left: 20px;
+}
+
+#deleteBlog {
+  background-color: rgb(194, 113, 113);
+  font-weight: 700;
+}
+
+#newBlogBtn {
+  background-color: rgb(135, 215, 226);
+  border-radius: 8%;
+  margin: 10px;
+}

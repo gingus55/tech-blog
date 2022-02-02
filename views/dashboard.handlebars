@@ -1,0 +1,13 @@
+<header>
+  {{> private-navbar}}
+</header>
+<main>
+  <div class="d-flex justify-content-center">
+<h1 class="m-3">Dashboard</h1>
+</div>
+  <div><button id="newBlogBtn" type="submit">+New Blog</button></div>
+  <h3>My Blogs</h3>
+  {{#each blogData}}
+     {{> blogs-dashboard}}
+  {{/each}}
+</main>
